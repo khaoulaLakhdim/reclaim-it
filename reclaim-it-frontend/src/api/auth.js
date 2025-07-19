@@ -49,4 +49,11 @@ export function getRole() {
   return api.get('/auth/role');
 }
 
+export function fetchCurrentUser() {
+    // GET /user returns your session’s `user` object
+    return api.get('/user');
+  }
+
+
 export default api;
+

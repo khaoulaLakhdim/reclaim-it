@@ -11,6 +11,7 @@ import RequestsPage   from './pages/RequestsPage';
 import ClaimsPage     from './pages/ClaimsPage';
 import RoleBased        from './components/RoleBased'; 
 import { MemberHome, AdminHome } from './pages/DashboardHome';
+import ListingDetailPage from './pages/ListingDetailPage';
 
 export default function App() {
   return (
@@ -36,7 +37,8 @@ export default function App() {
             }
           />
 
-          
+          <Route path="listings/:id" element={<ListingDetailPage />} />
+
           {/* admin‑only pages */}
           <Route path="requests" element={<RequestsPage />} />
 

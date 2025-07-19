@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { getRole, signOut } from '../api/auth';
 
-export default function DashboardPage() {
+export default function DashboardPage({ children, onSignOut}) {
   const [role, setRole]     = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError]    = useState('');
@@ -26,7 +26,7 @@ export default function DashboardPage() {
   return (
     <DashboardLayout role={role} onSignOut={handleLogout}>
       {/* All nested pages will render here */}
-      <Outlet />
+      <Outlet context={{ role }}> {children}</Outlet>
     </DashboardLayout>
   );
 }
